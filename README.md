@@ -297,8 +297,8 @@ upstream auction_servers {
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/auction-system.git
-cd auction-system
+git clone https://github.com/whoknows1409/doas-auction-system.git
+cd doas-auction-system
 ```
 
 ### 2. Environment Configuration
@@ -904,9 +904,18 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 Support & Contact
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/auction-system/issues)
-- **Documentation**: [Wiki](https://github.com/yourusername/auction-system/wiki)
-- **Email**: your.email@example.com
+- **GitHub**: [@whoknows1409](https://github.com/whoknows1409)
+- **Issues**: [GitHub Issues](https://github.com/whoknows1409/doas-auction-system/issues)
+- **Portfolio**: [omkarbhoir.vercel.app](https://omkarbhoir.vercel.app/)
+
+---
+
+## 👤 Author
+
+**Omkar Bhoir**
+- GitHub: [@whoknows1409](https://github.com/whoknows1409)
+- Portfolio: [omkarbhoir.vercel.app](https://omkarbhoir.vercel.app/)
+- Project Repository: [DOAS - Distributed Online Auction System](https://github.com/whoknows1409/doas-auction-system)
 
 ---
 
@@ -921,6 +930,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Built with ❤️ for Distributed Systems Course**
+**Built with ❤️ by Omkar Bhoir for Distributed Systems Course**
 
 *Demonstrating real-world implementation of distributed systems concepts*

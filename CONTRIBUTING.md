@@ -1,5 +1,7 @@
 # Contributing to DOAS - Distributed Online Auction System
 
+**Author:** Omkar Bhoir ([@whoknows1409](https://github.com/whoknows1409))
+
 First off, thank you for considering contributing to DOAS! It's people like you that make DOAS such a great tool for learning distributed systems.
 
 ## Table of Contents

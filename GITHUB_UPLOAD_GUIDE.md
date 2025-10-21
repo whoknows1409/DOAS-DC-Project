@@ -400,10 +400,12 @@ Your project is now on GitHub and ready to share with:
 
 ---
 
-**Repository URL Format:**
+**Your Repository URL:**
 ```
-https://github.com/YOUR_USERNAME/doas-auction-system
+https://github.com/whoknows1409/doas-auction-system
 ```
+
+**Author:** Omkar Bhoir ([@whoknows1409](https://github.com/whoknows1409))
 
 **Good luck! 🚀**
 
