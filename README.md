@@ -917,6 +917,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Built with ❤️ by Omkar Bhoir for Distributed Systems Course**
+**Built by Omkar Bhoir for Distributed Systems Course**
 
 *Demonstrating real-world implementation of distributed systems concepts*
