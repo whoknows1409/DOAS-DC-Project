@@ -525,7 +525,7 @@ on user feedback.
 Feel free to:
 - **Open an issue** with the `question` label
 - **Join our Discord** server (if applicable)
-- **Email maintainers** at your.email@example.com
+- **Email maintainers** at bhoiromkar1409@gmail.com
 
 ---
 
