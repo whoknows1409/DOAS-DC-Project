@@ -917,17 +917,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 📸 Screenshots
-
-> **Note**: Add screenshots of your application here:
-> - Login/Register page
-> - Auction listing page
-> - Auction detail with real-time bidding
-> - Admin dashboard with server monitoring
-> - Profile page
-
----
-
 **Built with ❤️ by Omkar Bhoir for Distributed Systems Course**
 
 *Demonstrating real-world implementation of distributed systems concepts*
