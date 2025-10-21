@@ -297,8 +297,8 @@ upstream auction_servers {
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/whoknows1409/doas-auction-system.git
-cd doas-auction-system
+git clone https://github.com/whoknows1409/DOAS-DC-Project.git
+cd DOAS-DC-Project
 ```
 
 ### 2. Environment Configuration
@@ -905,7 +905,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 📞 Support & Contact
 
 - **GitHub**: [@whoknows1409](https://github.com/whoknows1409)
-- **Issues**: [GitHub Issues](https://github.com/whoknows1409/doas-auction-system/issues)
+- **Issues**: [GitHub Issues](https://github.com/whoknows1409/DOAS-DC-Project/issues)
 
 ---
 
@@ -913,7 +913,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Omkar Bhoir**
 - GitHub: [@whoknows1409](https://github.com/whoknows1409)
-- Project Repository: [DOAS - Distributed Online Auction System](https://github.com/whoknows1409/doas-auction-system)
+- Project Repository: [DOAS - Distributed Online Auction System](https://github.com/whoknows1409/DOAS-DC-Project)
 
 ---
 
