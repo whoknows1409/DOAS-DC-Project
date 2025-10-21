@@ -906,7 +906,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 - **GitHub**: [@whoknows1409](https://github.com/whoknows1409)
 - **Issues**: [GitHub Issues](https://github.com/whoknows1409/doas-auction-system/issues)
-- **Portfolio**: [omkarbhoir.vercel.app](https://omkarbhoir.vercel.app/)
 
 ---
 
@@ -914,7 +913,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Omkar Bhoir**
 - GitHub: [@whoknows1409](https://github.com/whoknows1409)
-- Portfolio: [omkarbhoir.vercel.app](https://omkarbhoir.vercel.app/)
 - Project Repository: [DOAS - Distributed Online Auction System](https://github.com/whoknows1409/doas-auction-system)
 
 ---
