@@ -315,10 +315,11 @@ nano .env
 
 ```bash
 # Build and start all services
-docker-compose up -d
+./manage.sh build
+./manage.sh start
 
 # Watch logs
-docker-compose logs -f
+./manage.sh logs
 ```
 
 ### 4. Access the Application
@@ -331,11 +332,11 @@ docker-compose logs -f
 ### 5. Test the System
 
 ```bash
-# Run system validation script
-./scripts/validate-system.sh
+# Check system status and health
+./manage.sh status
 
-# Check server health
-curl http://localhost/api/admin/status | jq
+# Run detailed health check
+./manage.sh health
 ```
 
 ---
@@ -394,13 +395,7 @@ auction-system/
 ├── database/                 # Database initialization
 │   └── init.sql             # Schema and seed data
 │
-├── scripts/                  # Utility scripts
-│   ├── start.sh             # Start system
-│   ├── build.sh             # Build containers
-│   ├── validate-system.sh   # System validation
-│   ├── reset-database.sh    # Reset database
-│   ├── clear-auctions.sh    # Clear auctions
-│   └── demo-complete-system.sh  # Demo script
+├── manage.sh                 # Main management script (start/stop/build/etc.)
 │
 ├── uploads/                  # File uploads directory
 │   └── .gitkeep
@@ -704,39 +699,93 @@ const WS_URL = process.env.REACT_APP_WS_URL || 'ws://localhost/ws';
 
 ```bash
 # Start the entire system
-./scripts/start.sh
+./manage.sh start
 
 # Build Docker images
-./scripts/build.sh
+./manage.sh build
 
-# Validate system health
-./scripts/validate-system.sh
+# Check system status
+./manage.sh status
 
-# Run complete demonstration
-./scripts/demo-complete-system.sh
+# Run health checks
+./manage.sh health
+
+# View logs
+./manage.sh logs
+
+# Restart the system
+./manage.sh restart
+
+# Stop the system
+./manage.sh stop
 ```
 
 ### Database Management
 
 ```bash
 # Reset database (clear all data)
-./scripts/reset-database.sh
+./manage.sh reset-db
 
-# Clear only auctions and bids
-./scripts/clear-auctions.sh
-
-# Or see DATABASE_COMMANDS.md for manual operations
+# Clean everything (containers, volumes, build artifacts)
+./manage.sh clean
 ```
 
-### Demonstration Commands
+### GitHub Upload
 
-See `DEMO_GUIDE.md` for complete demonstration script including:
-- RMI communication verification
-- Clock synchronization testing
-- Leader election simulation
-- 2PC transaction demonstration
-- Load balancing verification
-- Multithreading stress tests
+```bash
+# Upload to GitHub (interactive)
+./manage.sh github
+```
+
+For complete documentation, see:
+- `README.md` - This file
+- `GITHUB_UPLOAD_GUIDE.md` - Detailed GitHub upload instructions
+- `TROUBLESHOOTING.md` - Common issues and solutions
+- `CONTRIBUTING.md` - Contribution guidelines
+
+### Getting Help
+
+```bash
+# Show all available commands
+./manage.sh help
+```
+
+---
+
+## 📸 Screenshots
+
+### Auction Listing
+![Auction Listing](docs/screenshots/auction-list.png)
+
+### Live Bidding
+![Live Bidding](docs/screenshots/bidding.png)
+
+### Admin Dashboard
+![Admin Dashboard](docs/screenshots/admin.png)
+
+---
+
+## 🎯 Demonstration
+
+To demonstrate the distributed systems features:
+
+1. **RMI Communication:**
+   - Check logs: `./manage.sh logs auction-server-1`
+   - Look for RMI registration and heartbeat messages
+
+2. **Leader Election:**
+   - Stop the coordinator: `docker-compose stop auction-server-1`
+   - Watch new leader election in logs
+
+3. **Load Balancing:**
+   - Monitor logs from all servers: `./manage.sh logs`
+   - Create multiple auctions and see requests distributed
+
+4. **Clock Synchronization:**
+   - Check logs for Lamport clock updates during operations
+
+5. **Two-Phase Commit:**
+   - Create an auction and observe 2PC logs across servers
 
 ---
 

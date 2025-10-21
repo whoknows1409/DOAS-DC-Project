@@ -30,55 +30,27 @@ Before uploading to GitHub, ensure:
    - **DO NOT** initialize with README, .gitignore, or license (we already have these)
 4. Click **Create repository**
 
-### Step 2: Initialize Git in Your Local Project
+### Step 2: Upload to GitHub
 
-Open terminal in your project directory:
+Open terminal in your project directory and run the interactive script:
 
 ```bash
 cd "/home/immortalomi14/Documents/SEM 5/DC/auction-system"
 
-# Initialize git repository
-git init
-
-# Add all files
-git add .
-
-# Check what will be committed (optional)
-git status
-
-# Create initial commit
-git commit -m "Initial commit: DOAS - Distributed Online Auction System
-
-Features:
-- Java RMI for client-server communication
-- Multithreading with ExecutorService
-- Lamport Logical Clocks for synchronization
-- Bully and Ring election algorithms
-- Two-Phase Commit protocol
-- Distributed locking with Redis
-- Data replication across 3 backend servers
-- Nginx load balancing (least connections)
-- Real-time bidding with WebSocket
-- React frontend with Ant Design
-- Docker containerization
-- PostgreSQL database with persistent volumes"
+# Run the GitHub upload command
+./manage.sh github
 ```
 
-### Step 3: Connect to GitHub and Push
+The script will:
+1. Ask for your GitHub username
+2. Ask for repository name (default: doas-auction-system)
+3. Initialize git repository
+4. Add all files
+5. Create initial commit
+6. Connect to GitHub
+7. Push your code
 
-Replace `YOUR_USERNAME` with your actual GitHub username:
-
-```bash
-# Add remote repository
-git remote add origin https://github.com/YOUR_USERNAME/doas-auction-system.git
-
-# Verify remote is added
-git remote -v
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
-```
+That's it! The script handles everything automatically.
 
 **If prompted for credentials:**
 - Username: Your GitHub username
