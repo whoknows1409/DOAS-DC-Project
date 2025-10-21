@@ -1,0 +1,134 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: auctiondb
+      POSTGRES_USER: auctionuser
+      POSTGRES_PASSWORD: auctionpass
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - auction-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - auction-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/build:/usr/share/nginx/html
+      - uploads_data:/app/uploads
+    depends_on:
+      - auction-server-1
+      - auction-server-2
+      - auction-server-3
+    networks:
+      - auction-network
+
+  auction-server-1:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_ID: 1
+      SERVER_PORT: 8081
+      RMI_PORT: 1101
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: auctiondb
+      DB_USER: auctionuser
+      DB_PASSWORD: auctionpass
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PEER_SERVERS: "auction-server-2:1102,auction-server-3:1103"
+    ports:
+      - "8081:8081"
+      - "1101:1101"
+    volumes:
+      - uploads_data:/app/uploads
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - auction-network
+
+  auction-server-2:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_ID: 2
+      SERVER_PORT: 8082
+      RMI_PORT: 1102
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: auctiondb
+      DB_USER: auctionuser
+      DB_PASSWORD: auctionpass
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PEER_SERVERS: "auction-server-1:1101,auction-server-3:1103"
+    ports:
+      - "8082:8082"
+      - "1102:1102"
+    volumes:
+      - uploads_data:/app/uploads
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - auction-network
+
+  auction-server-3:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_ID: 3
+      SERVER_PORT: 8083
+      RMI_PORT: 1103
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: auctiondb
+      DB_USER: auctionuser
+      DB_PASSWORD: auctionpass
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PEER_SERVERS: "auction-server-1:1101,auction-server-2:1102"
+    ports:
+      - "8083:8083"
+      - "1103:1103"
+    volumes:
+      - uploads_data:/app/uploads
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - auction-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  uploads_data:
+
+networks:
+  auction-network:
+    driver: bridge

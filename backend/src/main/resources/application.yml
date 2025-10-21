@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: distributed-auction-system
+  
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:auctiondb}
+    username: ${DB_USER:auctionuser}
+    password: ${DB_PASSWORD:auctionpass}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+server:
+  port: ${SERVER_PORT:8081}
+  servlet:
+    context-path: /
+
+# Custom application properties
+app:
+  server:
+    id: ${SERVER_ID:1}
+    rmi:
+      port: ${RMI_PORT:1101}
+    peers: ${PEER_SERVERS:localhost:1102}
+  
+  coordination:
+    heartbeat:
+      interval: 5000
+      timeout: 15000
+    election:
+      timeout: 10000
+    replication:
+      factor: 3
+      timeout: 5000
+
+logging:
+  level:
+    com.auction.system: DEBUG
+    org.springframework.web.socket: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/auction-system.log

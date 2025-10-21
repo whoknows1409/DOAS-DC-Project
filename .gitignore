@@ -1,0 +1,152 @@
+# ============================================
+# DOAS - Distributed Online Auction System
+# .gitignore
+# ============================================
+
+# ============================================
+# Java / Maven
+# ============================================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.iml
+.idea/
+*.iws
+*.ipr
+
+# ============================================
+# Node.js / React
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Frontend Build
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# ============================================
+# Dependencies
+# ============================================
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ============================================
+# Testing & Coverage
+# ============================================
+/coverage
+*.log
+logs/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# ============================================
+# Docker
+# ============================================
+*.pid
+*.seed
+*.pid.lock
+.docker/
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+db/
+postgres-data/
+redis-data/
+
+# ============================================
+# Uploads & User Content
+# ============================================
+uploads/*
+!uploads/.gitkeep
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ============================================
+# IDE & Editors
+# ============================================
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+.metadata/
+
+# ============================================
+# Next.js (unused in this project)
+# ============================================
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# ============================================
+# Build & Deployment
+# ============================================
+/build
+/dist
+*.pem
+
+# ============================================
+# Vercel
+# ============================================
+.vercel
+
+# ============================================
+# AI & Development Tools
+# ============================================
+.claude
+.z-ai-config
+dev.log
+server.log
+prompt
+local-*
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.cache
+.cache/
